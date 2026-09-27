@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Student Marks</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-box">
+
+            <h1>Manage Student Marks</h1>
+
+            <h2><%= student.name %></h2>
+
+            <p>
+                <strong>Register Number:</strong>
+                <%= student.register_number %>
+            </p>
+
+            <p>
+                <strong>Department:</strong>
+                <%= student.department %>
+            </p>
+
+            <hr>
+
+            <h2>Current Marks</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Internal</th>
+                        <th>External</th>
+                        <th>Total</th>
+                        <th>Grade</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <% marks.forEach(mark => { %>
+
+                        <tr>
+                            <td><%= mark.subject %></td>
+                            <td><%= mark.internal_mark %></td>
+                            <td><%= mark.external_mark %></td>
+                            <td><%= mark.total_mark %></td>
+                            <td><%= mark.grade %></td>
+                            <td>
+                                 <a href="/admin/marks/<%= mark.id %>/edit">
+                                    <button type="button">Edit</button>
+                                </a>
+                            </td>
+                        </tr>
+
+                    <% }) %>
+
+                </tbody>
+
+            </table>
+
+            <br>
+
+            <h2>Add New Mark</h2>
+
+            <form action="/admin/student/<%= student.id %>/marks/add" method="POST">
+
+                <label for="subject">Subject</label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Enter subject name"
+                    required
+                >
+
+                <label for="internal_mark">Internal Mark</label>
+
+                <input
+                    type="number"
+                    id="internal_mark"
+                    name="internal_mark"
+                    min="0"
+                    max="40"
+                    required
+                >
+
+                <label for="external_mark">External Mark</label>
+
+                <input
+                    type="number"
+                    id="external_mark"
+                    name="external_mark"
+                    min="0"
+                    max="60"
+                    required
+                >
+
+                <label for="grade">Grade</label>
+
+                <input
+                    type="text"
+                    id="grade"
+                    name="grade"
+                    placeholder="Example: A+"
+                    required
+                >
+
+                <button type="submit">
+                    Add Mark
+                </button>
+
+            </form>
+
+            <br>
+
+            <a href="/admin/dashboard">
+                <button type="button">
+                    Back to Dashboard
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

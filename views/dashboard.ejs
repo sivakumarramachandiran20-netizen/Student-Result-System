@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-box">
+
+            <h1>Student Dashboard</h1>
+
+            <p>Welcome, <%= student.name %>!</p>
+
+            <div class="student-details">
+
+                <p>
+                    <strong>Register Number:</strong>
+                    <%= student.register_number %>
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    <%= student.email %>
+                </p>
+
+                <p>
+                    <strong>Department:</strong>
+                    <%= student.department %>
+                </p>
+
+                <p>
+                    <strong>Semester:</strong>
+                    <%= student.semester %>
+                </p>
+
+            </div>
+
+            <h2>Your Results</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Internal</th>
+                        <th>External</th>
+                        <th>Total</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <% marks.forEach(mark => { %>
+
+                        <tr>
+                            <td><%= mark.subject %></td>
+                            <td><%= mark.internal_mark %></td>
+                            <td><%= mark.external_mark %></td>
+                            <td><%= mark.total_mark %></td>
+                            <td><%= mark.grade %></td>
+                        </tr>
+
+                    <% }) %>
+
+                </tbody>
+
+            </table>
+
+            <a href="/logout">
+                <button>Logout</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

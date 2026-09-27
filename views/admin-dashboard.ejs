@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="/css/style.css">
+```
+
+</head>
+
+<body>
+
+```
+<div class="dashboard-container">
+
+    <div class="dashboard-box">
+
+        <h1>Admin Dashboard</h1>
+
+        <p>Welcome, Faculty Admin!</p>
+
+        <hr>
+
+        <h2>Student Result Management</h2>
+
+        <p>
+            Below are the students registered in the system.
+        </p>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Register Number</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Semester</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <% students.forEach(student => { %>
+
+                    <tr>
+                        <td><%= student.register_number %></td>
+                        <td><%= student.name %></td>
+                        <td><%= student.email %></td>
+                        <td><%= student.department %></td>
+                        <td><%= student.semester %></td>
+
+                        <td>
+                            <a href="/admin/student/<%= student.id %>/marks">
+                                <button type="button">
+                                    Manage Marks
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+
+                <% }) %>
+
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <div class="admin-options">
+
+            <button type="button">
+                View Students
+            </button>
+
+            <button type="button">
+                Add Marks
+            </button>
+
+            <button type="button">
+                View Results
+            </button>
+
+        </div>
+
+        <br>
+
+        <a href="/logout">
+            <button type="button">
+                Logout
+            </button>
+        </a>
+
+    </div>
+
+</div>
+```
+
+</body>
+
+</html>

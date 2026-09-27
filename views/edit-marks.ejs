@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Mark</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-box">
+
+            <h1>Edit Mark</h1>
+
+            <form action="/admin/marks/<%= mark.id %>/update" method="POST">
+
+                <label for="subject">Subject</label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value="<%= mark.subject %>"
+                    required
+                >
+
+                <label for="internal_mark">Internal Mark</label>
+
+                <input
+                    type="number"
+                    id="internal_mark"
+                    name="internal_mark"
+                    value="<%= mark.internal_mark %>"
+                    min="0"
+                    max="40"
+                    required
+                >
+
+                <label for="external_mark">External Mark</label>
+
+                <input
+                    type="number"
+                    id="external_mark"
+                    name="external_mark"
+                    value="<%= mark.external_mark %>"
+                    min="0"
+                    max="60"
+                    required
+                >
+
+                <label for="grade">Grade</label>
+
+                <input
+                    type="text"
+                    id="grade"
+                    name="grade"
+                    value="<%= mark.grade %>"
+                    required
+                >
+
+                <button type="submit">
+                    Update Mark
+                </button>
+
+            </form>
+
+            <br>
+
+            <a href="/admin/student/<%= mark.student_id %>/marks">
+                <button type="button">
+                    Cancel
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
